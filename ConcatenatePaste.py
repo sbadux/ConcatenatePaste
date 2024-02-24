@@ -25,7 +25,7 @@ def after_click(icon, query):
         conjunction = " AND "
     elif str(query) == "AND <>":
         conjunction = " AND <>"
-    elif str(query) == "Esci":
+    elif str(query) == "Quit":
         icon.stop()
 
     #Reads the clipboard and concatenates the strings.
