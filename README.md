@@ -30,15 +30,15 @@ Your clipboard will be automatically filled with the concatenated text and you c
 
 
 If you select **OR**:
-1987DSD* OR 1999DDHS21* OR 1774NAME7* OR 1826DHEY11* OR 858PTRG5*
+1987DSD OR 1999DDHS21 OR 1774NAME7 OR 1826DHEY11 OR 858PTRG5
 
 
 If you select **AND**:
-1987DSD* AND 1999DDHS21* AND 1774NAME7* AND 1826DHEY11* AND 858PTRG5*
+1987DSD AND 1999DDHS21 AND 1774NAME7 AND 1826DHEY11 AND 858PTRG5
 
 
 If you select **AND <>**:
-<>1987DSD* AND <>1999DDHS21* AND <>1774NAME7* AND <>1826DHEY11* AND <>858PTRG5*
+<>1987DSD AND <>1999DDHS21 AND <>1774NAME7 AND <>1826DHEY11 AND <>858PTRG5
 
 
 ## Settings
@@ -58,10 +58,14 @@ If the copied list contains a value like this "1999d dhs21" it will be automatic
 **Front asterisk**
 
 Disabled by default, it adds an asterisk as first charachter.
-Eg: 1999ddhs21 will be concatenated as "1999ddhs21*" by default, or `*1999ddhs21*` if the option is enabled
+Eg: 1999ddhs21 will be concatenated as "1999ddhs21" by default, or `*1999ddhs21` if the option is enabled
+
+**End asterisk**
+
+Enabled by default, it adds an asterisk as last charachter.
+Eg: 1999ddhs21 will be concatenated as "1999ddhs21*" by default, or `1999ddhs21` if the option is disabled
 
 
 ## Next steps
-- I know that putting an * at the end of each concatenated row can be a problem for some people. I need this behavior, so the first release works this way, but I'll put it as a toggable option in the next one.
-- I will also like to make ConcatenatePaste able to remember the last settings, but I'm not enough expert in delevoping.
+- I will like to make ConcatenatePaste able to remember the last settings, but I'm not enough expert in delevoping.
 I will try to figure out how to do it in the future, but I also like the fact that this tool does *absolutely nothing* on the PC where it is run. It just runs and doesn't write a single file.
