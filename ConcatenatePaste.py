@@ -18,7 +18,7 @@ def create_image(width, height, color1, color2):
 
 def after_click(icon, query):
     
-    #Definisce la conjunction
+    #Define the conjunction to be used
     if str(query) == "OR":
         conjunction = " OR "
     elif str(query) == "AND":
@@ -38,18 +38,29 @@ def after_click(icon, query):
             ClipboardRow = appunti.iloc[i, 0].replace(' ','')
         else:
             ClipboardRow = str(appunti.iloc[i, 0])
-        
+            print("entro 1")
+        print ("1"+ClipboardRow)
+
         #If "Front Asterisk" is true, adds the asterisk at the beginning of each row
         if stateFrAsterisk == True:
             ClipboardRow = "*" + ClipboardRow
+            print("entro 2")
+        print ("2"+ClipboardRow)
+
+        #If "End Asterisk" is true, adds the asterisk at the end of each row
+        if stateEnAsterisk == True:
+            ClipboardRow = ClipboardRow + "*"
+            print("entro 3")
+        print ("3"+ClipboardRow)
 
         #Concatenates the rows (puts a <> where the selected conjunction is AND <> )
         if i == 0:
-            output_tree = ClipboardRow + "*"
+            output_tree = ClipboardRow
             if conjunction == " AND <>":
-                output_tree = "<>" + ClipboardRow + "*"
+                output_tree = "<>" + ClipboardRow
         else:
-            output_tree =  output_tree + conjunction + ClipboardRow + "*"
+            output_tree =  output_tree + conjunction + ClipboardRow
+        print ("4"+ClipboardRow)
 
     #If "All capitals" is true, it turns all the text upper case
     if stateCapitals == True:
@@ -70,17 +81,24 @@ def FrAsterisk(icon, item):
     global stateFrAsterisk
     stateFrAsterisk = not item.checked
 
-#FUNZIONE EFFETTIVA
+def EnAsterisk(icon, item):
+    global stateEnAsterisk
+    stateEnAsterisk = not item.checked
+
+#MAIN FUNCTION
 global stateCapitals
 global stateSpaces
 global stateFrAsterisk
+global stateEnAsterisk
 
 stateCapitals = True
 stateSpaces = True
 stateFrAsterisk = False 
+stateEnAsterisk = True
+
+#Creates the icon and the menu with the commands
 
 image = create_image(64, 64, 'blue', 'white')
-
 icon = pystray.Icon("CP", image, "ConcatenatePaste",
 					menu=pystray.Menu(
 	pystray.MenuItem("OR", after_click),
@@ -89,7 +107,8 @@ icon = pystray.Icon("CP", image, "ConcatenatePaste",
     pystray.MenuItem("Settings",
                      Menu(Item('All capitals', Capitals, checked=lambda item: stateCapitals),
                           Item('Remove spaces', Spaces, checked=lambda item: stateSpaces),
-                          Item('Front asterisk', FrAsterisk, checked=lambda item: stateFrAsterisk))
+                          Item('Front asterisk', FrAsterisk, checked=lambda item: stateFrAsterisk),
+                          Item('End asterisk', EnAsterisk, checked=lambda item: stateEnAsterisk))
                         ),
 	pystray.MenuItem("Quit", after_click)))
 icon.run()
