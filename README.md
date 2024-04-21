@@ -1,6 +1,7 @@
 # ConcatenatePaste
  Simple python tool to concatenate strings with AND/OR.
  On Windows, it creates a system tray icon where you can select the conjunction to concatenate all the rows copied in the clipboard
+ You can find the .exe version here: https://github.com/sbadux/ConcatenatePaste/releases
 
 ## Disclaimer
 I'm not a developer so the code of this project is probabily ugly, but it works.
