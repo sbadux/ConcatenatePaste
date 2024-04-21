@@ -1,5 +1,3 @@
-#version 0.6
-
 import pystray
 import pyperclip
 import pandas as pd
